@@ -28,21 +28,19 @@ class Post
   public static function all()
 
   {
+    return cache()->rememberForever('post.all', function() {
     return collect(File::files(resource_path("posts")))
 
-      ->map(function ($file) {
-        return YamlFrontMatter::parseFile($file);
-      })
-      ->map(function ($document) {
-
-
-        return new Post(
+      ->map(fn ($file) =>YamlFrontMatter::parseFile($file))
+      ->map(fn ($document) => new Post(
           $document->title,
           $document->excerpt,
           $document->date,
           $document->body(),
           $document->slug
-        );
+
+      ))
+      ->sortByDesc('date');
       });
   }
 
@@ -53,4 +51,18 @@ class Post
     return static::all() ->firstWhere('slug', $slug);
 
   }
+  public static function findOrfail($slug)
+  {
+    //de todos los posts, encontrar el que tiene un slug que encaja con el solicitado//
+   
+    $post = static::find($slug);
+
+    if (! $post) {
+      throw new ModelNotFoundException();
+    }
+
+    return $post;
+
+  }
+
 }
