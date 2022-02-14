@@ -46,14 +46,13 @@ class Post
 
   public static function find($slug)
   {
-    //de todos los posts, encontrar el que tiene un slug que encaja con el solicitado//
+  
    
     return static::all() ->firstWhere('slug', $slug);
 
   }
   public static function findOrfail($slug)
   {
-    //de todos los posts, encontrar el que tiene un slug que encaja con el solicitado//
    
     $post = static::find($slug);
 
