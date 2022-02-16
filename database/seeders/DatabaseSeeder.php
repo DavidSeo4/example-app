@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+       $user = User::factory()->create(([
+            'name'=> ' David Seoane '
+        ]));
+
+         Post::factory(5)->create([
+             'user_id'=> $user->id
+         ]);
+
+        
     }
 }
