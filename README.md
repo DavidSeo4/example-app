@@ -16,3 +16,4 @@ Creación de un Blog con Laravel:
 - 6_Posts: id, user_id, category_id, slug, title, excerpt, body, created_at, updated_at, pusblished_at.
 - 7_Users: id, username, name, email, email_verified_at, password, remember_token, created_at, updated_at.
 - Con el fin de dotar a la pagina de un mínimo de estética se le ha aplicado Bootstrap introduciendo el enlace correspondiete ( <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">) en el archivo layout.blade.php, que controla la estetica y distribucion de las dos páginas principales. Además he añadido un cuantos estilos de mi propia mano para hacer algo mas visible el contenido.
+- Todos los comandos aplicados al repositorio y los archivos creados se basan exclusivamente en el tutorial seguido.
